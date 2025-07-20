@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
     const city = formData.get("city") as string;
     const state = formData.get("state") as string;
     const zipCode = formData.get("zipCode") as string;
+    const numberOfUnits = formData.get("numberOfUnits") as string;
     const includeWebSearch = formData.get("includeWebSearch") === "true";
     const latitude = formData.get("latitude") as string;
     const longitude = formData.get("longitude") as string;
@@ -37,6 +38,7 @@ export async function POST(request: NextRequest) {
     const analysisRequest: TenantDefaultAnalysisRequest = {
       propertyName: propertyName || null,
       propertyAddress: propertyAddress || null,
+      numberOfUnits: numberOfUnits ? parseInt(numberOfUnits, 10) : null,
       analysisDate: new Date().toISOString(),
       includeWebSearch,
       searchLocation: city && state ? {
@@ -52,6 +54,7 @@ export async function POST(request: NextRequest) {
     console.log("[API] Analysis request parameters:", {
       propertyName,
       propertyAddress,
+      numberOfUnits,
       location: analysisRequest.searchLocation,
       includeWebSearch,
       fileSize: file.size,

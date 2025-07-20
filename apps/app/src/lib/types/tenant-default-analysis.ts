@@ -91,6 +91,7 @@ export type TenantRiskAssessment = z.infer<typeof TenantRiskAssessmentSchema>;
 export const TenantDefaultAnalysisRequestSchema = z.object({
   propertyName: z.string().nullable(),
   propertyAddress: z.string().nullable(),
+  numberOfUnits: z.number().positive().nullable(),
   analysisDate: z.string().datetime(),
   includeWebSearch: z.boolean(),
   searchLocation: z

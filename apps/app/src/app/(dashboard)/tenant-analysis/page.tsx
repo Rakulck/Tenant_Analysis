@@ -41,6 +41,7 @@ export default function TenantDefaultAnalysis() {
     city: "",
     state: "",
     zipCode: "",
+    numberOfUnits: "",
   });
   const [addressCoordinates, setAddressCoordinates] = useState<{
     latitude?: number;
@@ -96,6 +97,7 @@ export default function TenantDefaultAnalysis() {
       formData.append("city", propertyInfo.city);
       formData.append("state", propertyInfo.state);
       formData.append("zipCode", propertyInfo.zipCode);
+      formData.append("numberOfUnits", propertyInfo.numberOfUnits);
       formData.append("includeWebSearch", includeWebSearch.toString());
       if (addressCoordinates.latitude && addressCoordinates.longitude) {
         formData.append("latitude", addressCoordinates.latitude.toString());
@@ -305,6 +307,23 @@ export default function TenantDefaultAnalysis() {
                       className="bg-gray-50"
                     />
                   </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Number of Units
+                  </label>
+                  <Input
+                    type="number"
+                    min="1"
+                    value={propertyInfo.numberOfUnits}
+                    onChange={(e) =>
+                      setPropertyInfo((prev) => ({
+                        ...prev,
+                        numberOfUnits: e.target.value,
+                      }))
+                    }
+                    placeholder="Enter number of units"
+                  />
                 </div>
               </div>
             </div>
