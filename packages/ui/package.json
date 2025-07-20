@@ -31,6 +31,7 @@
     "./dialog": "./src/components/dialog.tsx",
     "./icons": "./src/components/icons.tsx",
     "./select": "./src/components/select.tsx",
+    "./card": "./src/components/card.tsx",
     "./tailwind.config": "./tailwind.config.ts",
     "./postcss": "./postcss.config.js"
   },

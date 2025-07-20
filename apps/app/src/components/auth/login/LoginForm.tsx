@@ -44,7 +44,7 @@ export function LoginForm() {
           text: "Signing you in...",
         });
         // Redirect to tenant analysis dashboard
-        window.location.href = "/tenant-analysis";
+        window.location.href = "/dashboard";
       } else {
         setMessage({
           type: "error",
