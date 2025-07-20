@@ -3,16 +3,16 @@
 import { Loading } from "@/components/ui/loading";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@v1/ui";
-import { Input } from "@v1/ui";
+import { Button } from "@v1/ui/button";
+import { Input } from "@v1/ui/input";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { createClient } from "../../../../../../packages/supabase/src/clients/client";
-import { updatePassword } from "../../../../../../packages/supabase/src/queries/auth/auth-server";
+import { createClient } from "@v1/supabase/client";
+import { updatePassword } from "@v1/supabase/queries";
 
 const passwordSchema = z
   .object({
@@ -203,7 +203,7 @@ export function UpdatePassword() {
             >
               {isLoading ? (
                 <div className="flex items-center justify-center gap-2">
-                  <Loading size="sm" className="text-white" />
+                  <Loading size={16} className="text-white" />
                   <span>Updating...</span>
                 </div>
               ) : (
